@@ -34,7 +34,7 @@ contract MockAugur is Controlled {
 
     function logMarketCreatedCalled() public returns(bool) {return logMarketCreatedCalledValue;}
 
-    function logMarketCreated(IUniverse _universe, address _market, address _marketCreator, uint256 _marketCreationFee, string _extraInfo) public returns (bool) {
+    function logMarketCreated(IUniverse _universe, address _market, address _marketCreator, uint256 _marketCreationFee, string _topic, string _extraInfo) public returns (bool) {
         logMarketCreatedCalledValue = true;
         return true;
     }
@@ -54,14 +54,14 @@ contract MockAugur is Controlled {
     bool private logReportsDisputedCalledValue;
 
     function logReportsDisputedCalled() public returns(bool) { return logReportsDisputedCalledValue; }
-    
+
     function logReportsDisputed(IUniverse _universe, address _disputer, address _market, IMarket.ReportingState _reportingPhase, uint256 _disputeBondAmount) public returns (bool) {
         logReportsDisputedCalledValue = true;
         return true;
     }
 
     function logMarketFinalizedCalled() public returns (bool) { return logMarketFinalizedCalledValue; }
-    
+
     bool private logMarketFinalizedCalledValue;
 
     function logMarketFinalized(IUniverse _universe, address _market) public returns (bool) {
